@@ -76,7 +76,7 @@ spring.datasource.password=password
     - هدر: `Authorization: Bearer JWT_TOKEN_HERE`
     - ورودی: `{ "canvas_data": "SERIALIZED_DATA" }`
 
-> برای تست سریع APIها می‌توانید از فایل Postman Collection این پروژه استفاده کنید.
+> برای تست سریع APIها می‌توانید از فایل [Postman Collection](./louie.postman_collection.json) این پروژه استفاده کنید.
 
 ---
 
