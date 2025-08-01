@@ -23,11 +23,12 @@ public class PaintingService {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("کاربر یافت نشد"));
 
-        paintingRepository.findPaintingByUser_Username(username)
-                .ifPresent(paintingRepository::delete);
-
-        Painting painting = new Painting(canvasData, user);
-        return paintingRepository.save(painting);
+        Painting p = paintingRepository.findPaintingByUser_Username(username).
+                orElseGet(() -> {
+                    return new Painting(canvasData, user);
+                });
+        p.setCanvasData(canvasData);
+        return paintingRepository.save(p);
     }
 
     public Optional<Painting> getPaintingByUserUsername(String username) {

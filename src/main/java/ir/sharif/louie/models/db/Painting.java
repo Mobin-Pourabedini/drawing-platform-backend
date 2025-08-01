@@ -5,13 +5,13 @@ import lombok.Data;
 
 @Data
 @Entity
+@Table(name = "paintings")
 public class Painting {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Lob
-    @Column(columnDefinition = "LONGTEXT")
+    @Column(columnDefinition = "TEXT")
     private String canvasData; // JSON string of canvas data
 
     @OneToOne(fetch = FetchType.LAZY)
